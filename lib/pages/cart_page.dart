@@ -12,32 +12,53 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-
-  void removeFromCart(Coffe coffe){
-    Provider.of<CoffeShop>(context , listen: false).removeItemFromCart(coffe);
+  void removeFromCart(Coffe coffe) {
+    Provider.of<CoffeShop>(context, listen: false).removeItemFromCart(coffe);
   }
+
+  void payNow() {}
   @override
   Widget build(BuildContext context) {
-    return Consumer<CoffeShop>(builder: (context, value, child) =>SafeArea(
-      child: Column(
-        children: [
-          Text(  
-            'Giỏ Hàng',
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: value.userCart.length,
-              itemBuilder: (context, index) {
-              Coffe eachCoffe = value.userCart[index];
-
-              return CoffeTile(coffe: eachCoffe,
-               onPressed: () => removeFromCart(eachCoffe), icon: Icon(Icons.delete));
-              },
+    return Consumer<CoffeShop>(
+      builder: (context, value, child) => SafeArea(
+        child: Column(
+          children: [
+            Text(
+              'Giỏ Hàng',
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400),
             ),
-          ),
-        ],
+            Expanded(
+              child: ListView.builder(
+                itemCount: value.userCart.length,
+                itemBuilder: (context, index) {
+                  Coffe eachCoffe = value.userCart[index];
+
+                  return CoffeTile(
+                      coffe: eachCoffe,
+                      onPressed: () => removeFromCart(eachCoffe),
+                      icon: Icon(Icons.delete));
+                },
+              ),
+              // pay button_cart
+            ),
+            GestureDetector(
+              onTap:  payNow,
+              child: Container(
+                padding: EdgeInsets.all(25),
+                width: double.infinity,
+                child: Center(
+                  child: Text(
+                    'Pay Now',
+                    style:
+                        TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                decoration: BoxDecoration(color: Colors.brown, borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+          ],
+        ),
       ),
-    ),);
+    );
   }
 }

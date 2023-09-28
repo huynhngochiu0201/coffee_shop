@@ -1,5 +1,4 @@
 import 'dart:js_util';
-
 import 'package:coffee_shop_futter/components/coffe_tile.dart';
 import 'package:coffee_shop_futter/models/coffe.dart';
 import 'package:coffee_shop_futter/models/coffe_shop.dart';
@@ -14,10 +13,14 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-void addToCart (Coffe coffe){
-  Provider.of<CoffeShop>(context,listen: false).addItemToCart(coffe);
+  void addToCart(Coffe coffe) {
+    Provider.of<CoffeShop>(context, listen: false).addItemToCart(coffe);
 
-}
+
+    // showDialog(context: context, builder: (context) => AboutDialog(
+    //   title:  Text("Đã thêm cào giỏ hàng"),
+    // ),);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +44,9 @@ void addToCart (Coffe coffe){
                     Coffe eachCoffe = value.coffeShop[index];
 
                     return CoffeTile(
-                      coffe: eachCoffe,
-                      icon:Icon(Icons.add),
-                    onPressed:  () => addToCart(eachCoffe));
+                        coffe: eachCoffe,
+                        icon: Icon(Icons.add),
+                        onPressed: () => addToCart(eachCoffe));
                   },
                 ),
               ),

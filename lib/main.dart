@@ -17,11 +17,9 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => CoffeShop(),
       builder: (context, child) => const MaterialApp(
-        debugShowCheckedModeBanner:  false,
+        debugShowCheckedModeBanner: false,
         home: HomePage(),
       ),
-
     );
   }
 }
-
