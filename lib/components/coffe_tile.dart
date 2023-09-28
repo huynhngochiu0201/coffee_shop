@@ -5,7 +5,8 @@ import '../models/coffe.dart';
 class CoffeTile extends StatelessWidget {
   void Function()? onPressed;
   final Coffe coffe;
-  CoffeTile({Key? key, required this.coffe, required this.onPressed})
+  final Widget icon;
+  CoffeTile({Key? key, required this.coffe, required this.onPressed, required this.icon})
       : super(key: key);
 
   @override
@@ -22,7 +23,7 @@ class CoffeTile extends StatelessWidget {
         subtitle: Text(coffe.price),
         leading: Image.asset(coffe.image),
         trailing: IconButton(
-          icon: Icon(Icons.add),
+          icon: icon,
           onPressed: onPressed,
         ),
       ),

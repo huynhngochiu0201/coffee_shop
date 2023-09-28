@@ -42,6 +42,7 @@ void addToCart (Coffe coffe){
 
                     return CoffeTile(
                       coffe: eachCoffe,
+                      icon:Icon(Icons.add),
                     onPressed:  () => addToCart(eachCoffe));
                   },
                 ),
