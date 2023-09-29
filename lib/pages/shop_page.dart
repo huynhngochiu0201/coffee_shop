@@ -1,4 +1,3 @@
-import 'dart:js_util';
 import 'package:coffee_shop_futter/components/coffe_tile.dart';
 import 'package:coffee_shop_futter/models/coffe.dart';
 import 'package:coffee_shop_futter/models/coffe_shop.dart';
@@ -17,9 +16,7 @@ class _ShopPageState extends State<ShopPage> {
     Provider.of<CoffeShop>(context, listen: false).addItemToCart(coffe);
 
 
-    // showDialog(context: context, builder: (context) => AboutDialog(
-    //   title:  Text("Đã thêm cào giỏ hàng"),
-    // ),);
+   showDialog(context: context, builder: (context) => const AlertDialog(title: Text('Them vao gio hang thanh cong'),));
   }
 
   @override
